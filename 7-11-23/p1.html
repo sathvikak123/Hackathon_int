@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Bot</title>
+    <style>
+body {
+  background-image: url("C:/Users/ushas/OneDrive/Desktop/hackathon/WhatsApp Image 2023-11-06 at 22.54.08_082775eb.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+    </style>
+   
+</head>
+<body>
+<div id="interview-container">
+    <h1 style="color:white;">Welcome to the Interview</h1>
+    
+    <p id="question"></p>
+    <input type="text" id="answer" placeholder="Your answer...">
+    <button onclick="nextQuestion()">Next</button>
+</div>
+
+<script>
+    const questions = [
+        "Tell me about yourself.",
+        "What is your experience in this field?",
+        "How do you handle challenges?",
+        "Why should we hire you?"
+        // Add more questions as needed
+    ];
+
+    let currentQuestionIndex = 0;
+
+    function nextQuestion() {
+        const answer = document.getElementById('answer').value;
+
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            const questionElement = document.getElementById('question');
+            questionElement.innerText = questions[currentQuestionIndex];
+            questionElement.style.color = 'white'; // Change 'your-desired-color' to the color you want
+            document.getElementById('answer').value = '';
+        } else {
+            document.getElementById('interview-container').innerHTML = '<h2 style="color:white;">Thank you for the interview!</h2>';
+        }
+    }
+
+    // Initial question
+    const initialQuestionElement = document.getElementById('question');
+    initialQuestionElement.innerText = questions[currentQuestionIndex];
+    initialQuestionElement.style.color = 'white'; // Change 'your-desired-color' to the color you want
+</script>
+
+</body>
+</html>
